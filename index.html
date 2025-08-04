@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #FAEEE6;
+        }
+        #content {
+            border: 1px solid transparent;
+            background-color: #FFC0CB;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            padding: 20px;
+            text-align: center;
+        }
+        #yesButton, #noButton {
+            font-size: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+        #yesButton {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+        #noButton {
+            background-color: #f44336; /* Red */
+            color: white;
+        }
+        #noButton:disabled {
+            background-color: #ddd;
+            color: #666;
+            box-shadow: none;
+        }
+        #yesButton:hover, #noButton:hover {
+            box-shadow: 0 12px 20px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+
+        .heart {
+            position: fixed;
+            top: -100px;
+            width: 100px;
+            height: 100px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 29.6"><path fill="%23FF0000" d="M16 29.6c-1-.6-21-12.6-16-20C5.7 5.6 10.3 4 16 11c5.7-7 10.3-5.4 16-2.6 5 7.4-15 19.6-16 20z"/></svg>');
+            animation: fall 4s linear infinite;     /* W3SCHOOL ANIMATION NG HEART */
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h2 id="question">Can we still try again, Mey:c?</h2>
+        <button id="yesButton">YES</button>
+        <button id="noButton">NO</button>
+        <p id="message"></p>
+        
+        <!-- Added Paragraph -->
+        <p id="addedParagraph" style="display: none;">
+            As you clicked “yes,” there’s a possibility that this was truly your first choice or maybe you were just curious, or simply couldn’t click “no.” Whatever the reason may be, whether out of intention or accident, I want you to know that I don’t expect anything in return. I didn’t write this hoping to change your mind or influence your feelings, I just needed a space to let mine out. I’ve spent the past two weeks building this website from scratch, trying to figure out every detail while constantly questioning whether any of it was even worth it, whether you'd actually read it or care at all. But still, I poured my heart into this letter, because maybe, deep down, I’ve always wanted to say these things but never had the chance or courage to do so.
+            <br><br>
+            I guess I’m just tired of pretending that what happened isn’t real, our story which ended. The truth is, I was never ready. I’m scared. I’ve always been scared. And like you said before, maybe I was too afraid to show how fragile I really am. Maybe that’s what led us to where we are now. But if there's one thing I’ve realized, it’s that choices were never meant to be easy. The decisions we made, the actions we took they were messy, confusing, and hard to understand. Yet despite it all, those one year and four months we spent together meant the world to me. It was a new chapter in my life, full of lessons, laughter, and love—something I will always carry with me, something I will continue to cherish no matter what.
+            <br><br>
+            We were never perfect. We were two very different people trying to build something together. But still, I felt you. I felt us. And that was enough. What hurts the most, more than losing you, is letting go of the plans I dreamed for us. Because you—yes, you—were my reason for holding on, my reason for pushing through, my reason for believing in something bigger than myself. I care about you deeply. I miss you more than I can express. And I love you so much, maybe too much. But you know me, I’ve never been good at showing my emotions, and maybe I never will be. That’s why writing this down is my way of saying everything I’ve kept inside.
+            <br><br>
+            If you’ve reached this part, I want you to know that I’m not waiting for your response. I’m not hoping for a miracle. I’m just glad I got to tell you what’s been weighing on my heart. Seeing you happy still brings me peace, even if that happiness no longer comes from me. And if choosing your happiness means losing you, then I will accept that. I’d rather see you smile from afar than keep you close and watch you suffer. But if will be given a chance, I hope you still choose love with me. 
+            <br><br>
+            So, for the last time—maybe not in life, but in this chapter, I want to say that I love you. I love you 300, and I love you 3000.
+        </p>
+    </div>
+
+    <script>
+        var noClickCount = 0;
+        document.getElementById('noButton').addEventListener('click', function() { //NOOOOO button
+            noClickCount++;
+            if (noClickCount == 1) {
+                document.getElementById('yesButton').style.fontSize = '30px';
+            } else if (noClickCount == 2) {
+                this.style.fontSize = '10px';
+                document.getElementById('yesButton').style.fontSize = '40px';
+            } else if (noClickCount == 3) {
+                document.getElementById('yesButton').style.fontSize = '90px';
+                this.style.fontSize = '7px';
+            } else if (noClickCount == 4) {
+                this.style.position = 'absolute';
+                this.style.left = Math.random() * window.innerWidth + 'px';
+                this.style.top = Math.random() * window.innerHeight + 'px';
+            } else if (noClickCount >= 5 && noClickCount < 10) {
+                this.style.position = 'absolute';
+                this.style.left = Math.random() * window.innerWidth + 'px';
+                this.style.top = Math.random() * window.innerHeight + 'px';
+            } else if (noClickCount >= 10 && noClickCount < 15) {
+                // Avoid disabling the button
+                // this.disabled = true;
+                this.style.position = 'absolute';
+                this.style.left = Math.random() * window.innerWidth + 'px';
+                this.style.top = Math.random() * window.innerHeight + 'px';
+                document.getElementById('message').innerText = 'Are you sure?';
+                document.getElementById('message').style.position = 'absolute';
+                document.getElementById('message').style.left = this.style.left;
+                document.getElementById('message').style.top = parseFloat(this.style.top) + 50 + 'px';
+            } else if (noClickCount == 15) {
+                document.getElementById('message').innerText = 'Oh No! You broke the button :c';
+                this.disabled = true;
+                this.style.color = grey;
+                document.getElementById('message').innerText = 'Oh No! You broke the button :c';
+            }
+        });
+
+        document.getElementById('yesButton').addEventListener('click', function() {                 //YESSSS button
+            document.getElementById('question').innerText = 'to, meymey.';
+            document.getElementById('addedParagraph').style.display = 'block'; // Show the added paragraph
+
+            for (var i = 0; i < 100; i++) {
+                var heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.animationDuration = Math.random() * 2 + 3 + 's'; //between 3 and 5 secs
+                heart.style.animationDelay = Math.random() * 2 + 's'; // eto 0 and 2. di ko sure kung sure na
+                document.body.appendChild(heart);
+            }
+            document.getElementById('yesButton').style.display = 'none';
+            document.getElementById('noButton').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
