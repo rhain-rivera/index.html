@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lan='eng'>
+
+<head>
+
+<meta charset='UTF-8'>
+<title>My webpage</title>
+
+<style>
+    body {
+  display: flex;
+  height:100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: black; /* Changed to black */
+  overflow: hidden;
+}
+
+#birthday-cake {
+  position: relative;
+  top:50px;
+  left:0;
+}
+
+#birthday-cake:before {
+  content:"";
+  position: absolute;
+  background-color: #ede0d4;
+  width: 400px;
+  height:140px;
+  border-radius:50%;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-10%);
+  box-shadow: inset -2px -5px #e6ccb2;
+}
+
+.cake {
+  position: absolute;
+  background-color: white; /* Changed to white */
+  width: 350px;
+  height:130px;
+  transform: translate(-50%,-60%);
+}
+
+.cake:before, .cake:after {
+  content:"";
+  position: absolute;
+}
+
+.cake:before, .middle, .middle:before {
+  border-radius: 50% 50% 50% 50% / 0% 0% 100% 100%;
+  width:350px;
+  height:50px;
+}
+
+.cake:before {
+  background-color: white; /* Changed to white */
+  top:130px;
+}
+
+.cake:after {
+  background-color: #b08968;
+  width:350px;
+  height:30px;
+  top:50px;
+}
+
+.middle {
+  position: absolute;
+  background-color: #b08968;
+  top:80px;
+  z-index:1;
+}
+
+.middle:before {
+  content:"";
+  position: absolute;
+  background-color: white; /* Changed to white */
+  top:-35px;
+}
+
+.top {
+  position: absolute;
+  background-color: red; /* Changed to red */
+  width:350px;
+  height: 90px;
+  border-radius:50%;
+  z-index:2;
+  top:-45px;
+  box-shadow: inset -5px -1px #fff, inset -70px 2px rgba(255,255,255,.1);
+}
+
+.chocs {
+  position: absolute;
+  width: 55px;
+  height:50px;
+  background-color: red; /* Changed to red */
+  top:0;
+  z-index:1;
+  border-radius: 50% 50% 50% 50% / 0% 0% 100% 100%;
+  box-shadow: 49px 20px red, 98px 25px red, 147px 30px red, 196px 25px red, 245px 20px red, 295px 0 red, 0px 4px #fff, 49px 24px #fff, 98px 29px #fff, 147px 34px #fff, 196px 29px #fff, 245px 24px #fff, 295px 4px #fff; /* Changed to red */
+}
+
+.chocs:before {
+  content:"";
+  position: absolute;
+  width:175px;
+  height:180px;
+  background-color: rgba(255,255,255,.1);
+  border-radius: 100% 0% 100% 0% / 0% 72% 28% 100%;
