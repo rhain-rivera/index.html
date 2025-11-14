@@ -313,19 +313,22 @@
     #videos {
       display: none;
       position: absolute;
-      top: 85%; /* Moved lower below the cake */
+      top: 50%; /* Centered vertically */
       left: 50%;
-      transform: translateX(-50%) scale(0) rotateY(180deg);
+      transform: translate(-50%, -50%) scale(0) rotateY(180deg); /* Centered both ways */
       z-index: 10;
       opacity: 0;
       transition: transform 1.5s ease, opacity 1.5s ease;
+      display: flex; /* Flexbox for side-by-side layout */
+      justify-content: center; /* Center videos horizontally */
+      align-items: center; /* Center videos vertically */
     }
     #videos.open {
-      transform: translateX(-50%) scale(1) rotateY(0deg);
+      transform: translate(-50%, -50%) scale(1) rotateY(0deg);
       opacity: 1;
     }
     video {
-      width: 400px;
+      width: 300px; /* Reduced width to fit both videos */
       height: auto;
       margin: 10px;
       opacity: 0;
@@ -345,11 +348,11 @@
   <div id="videos" class="gift-box">
     <video id="video1" controls>
       <source src="alex.mp4" type="video/mp4">
-      Your browser does not support the video tag.
+     
     </video>
     <video id="video2" controls>
       <source src="joynate.mp4" type="video/mp4">
-      Your browser does not support the video tag.
+      
     </video>
   </div>
   <div id="birthday-cake">
@@ -440,21 +443,13 @@
       document.getElementById("wish").style.opacity = "1"; // Fade in the message
       // Show videos with transition
       const videos = document.getElementById('videos');
-      videos.style.display = 'block';
+      videos.style.display = 'flex'; // Changed to flex for side-by-side
       setTimeout(() => {
         videos.classList.add('open'); // Trigger the gift-opening animation
         const video1 = document.getElementById('video1');
+        const video2 = document.getElementById('video2');
         video1.classList.add('show'); // Fade in video1
-        video1.addEventListener('ended', () => {
-          video1.classList.remove('show');
-          video1.classList.add('hide');
-          setTimeout(() => {
-            video1.style.display = 'none';
-            const video2 = document.getElementById('video2');
-            video2.style.display = 'block';
-            video2.classList.add('show'); // Fade in video2
-          }, 1000); // Wait for fade out
-        });
+        video2.classList.add('show'); // Fade in video2 at the same time
       }, 100); // Small delay for smooth transition
       setInterval(main, 3000);
 
